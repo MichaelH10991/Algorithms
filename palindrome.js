@@ -1,4 +1,4 @@
-let x = 1221
+let x = 1234
 
 let isPalindrome = (x) => {
     let temp = 0
@@ -12,14 +12,15 @@ let isPalindrome = (x) => {
 
 let getFirst = (x, num) => {
     let n = x
-    while (n >= num * 10) {
+    while (n >= num / 10) {
         n /= 10
     }
-    console.log(`start: ${Math.floor(n)}`)
+    return Math.floor(n)
 }
 
 let len = (x) => {
     let count = 0
+    let p = 0
     for (i = 0; i <= x; i++) {
         let end = Math.floor(x % 10)
         let start = getFirst(x, count + 1)
@@ -28,7 +29,6 @@ let len = (x) => {
         x /= 10
         count++
         i = 0
-        console.log(end)
     }
 }
 
