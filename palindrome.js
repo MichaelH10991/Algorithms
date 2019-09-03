@@ -1,4 +1,4 @@
-let x = 1234
+let x = 4321
 
 let isPalindrome = (x) => {
     let temp = 0
@@ -10,29 +10,57 @@ let isPalindrome = (x) => {
     }
 }
 
-let getFirst = (x, num) => {
-    let n = x
-    while (n >= num / 10) {
-        n /= 10
+let getFirst = (x, c) => {
+    console.log(c)
+    while (x >= c) {
+        x /= 10
     }
-    return Math.floor(n)
+    x %= 10
+    console.log(x)
+
+    return Math.floor(x)
 }
 
 let len = (x) => {
-    let count = 0
-    let p = 0
+    let count = 10
     for (i = 0; i <= x; i++) {
         let end = Math.floor(x % 10)
-        let start = getFirst(x, count + 1)
+        let start = getFirst(x, count)
+        count *= 10
         console.log(`start: ${start}`)
         console.log(`end: ${end}`)
         x /= 10
-        count++
         i = 0
     }
 }
 
+let flip = (x) => {
+    let array = JSON.stringify(x)
+    console.log(array)
+    let n = array.length
+    let temp = 0
+
+    for (letter in array) {
+        if (letter >= 1) {
+            letter = 0
+        }
+    }
+
+    for (i = 0; i < n; i++) {
+        for (j = 1; j < (n - i); j++) {
+            if (array[i] < array[i + 1]) {
+                temp = array[i]
+                array[i] = array[i + 1]
+                array[i + 1] = temp
+            }
+        }
+    }
+    // console.log(array)
+    return array
+}
+
+console.log(flip(x))
 // isPalindrome(x)
 // getFirst(x)
 // len(x)
-len(x)
+// len(x)
