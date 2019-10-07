@@ -59,7 +59,26 @@ let flip = (x) => {
     return array
 }
 
-console.log(flip(x))
+let palindrome = (x) => {
+    let end = 0
+    let copy = x
+    let div = 1000
+    let totalDiff = 0
+    for (i = 0; i <= x; i++) {
+        end = Math.floor(x % 10)
+        start = Math.floor(copy / (div))
+        start %= 10
+        div /= 10
+        x /= 10
+        console.log(`start: ${start} end: ${end}`)
+        console.log(`${start} - ${end} = ${start - end}`)
+        totalDiff += Math.abs(start - end)
+    }
+    console.log(totalDiff)
+}
+
+console.log(palindrome(x))
+//console.log(flip(x))
 // isPalindrome(x)
 // getFirst(x)
 // len(x)
